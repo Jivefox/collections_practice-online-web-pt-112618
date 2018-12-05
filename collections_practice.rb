@@ -25,7 +25,6 @@ def reverse_array(arr)
 end
 
 def kesha_maker(arr)
-  kesha_made = []
   arr.each do |string|
     string[2] = "$"
   end
@@ -35,12 +34,17 @@ def find_a(arr)
   arr.select { |string| string.start_with?("a") }
 end
 
+#def sum_array(arr)
+ # arr.inject { |sum, n| sum + n } 
+#end
+
+# this is the slick way:
 def sum_array(arr)
-  arr.inject { |sum, n| sum + n } 
+  arr.reduce(:+)
 end
 
 def add_s(arr)
-  arr.each_with_index.collect do |element, index|
+  arr.map.with_index do |element, index|
     if index != 1
       element + "s"
     else
